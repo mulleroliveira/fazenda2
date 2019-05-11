@@ -28,4 +28,15 @@ def register_animal(request):
         return render(request, 'animals/register.html', {'form':form})
 
 def edit_animal(request, id_animal):
-    pass
+    if request.method == 'POST':
+        animal = Animal.objects.get(pk=id_animal)
+        form = FormAnimal(request.POST, instance=animal)
+        if form.is_valid():
+            form.save()
+            return redirect('/gestao/animais/')
+        else:
+            return render(request, 'animals/edit.html', {'form':form, 'animal':animal})
+    else:
+        animal = Animal.objects.get(pk=id_animal)
+        form = FormAnimal(instance=animal)
+        return render(request, 'animals/edit.html', {'form':form,'animal':animal})

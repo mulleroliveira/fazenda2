@@ -19,8 +19,8 @@ class Farm(models.Model):
 class Animal(models.Model):
 
     tipagem_choices = (
-        ("A", "Abate"),
-        ("M", "Matriz")
+        ("Abate", "Abate"),
+        ("Matriz", "Matriz")
     )
 
     sexo_choices = (
@@ -30,7 +30,7 @@ class Animal(models.Model):
 
     name = models.CharField(max_length=20)
     sexo = models.CharField(max_length=1, choices=sexo_choices)
-    tipagem = models.CharField(max_length=1, choices=tipagem_choices)
+    tipagem = models.CharField(max_length=6, choices=tipagem_choices)
     fazenda = models.ForeignKey(Farm, on_delete=models.CASCADE)
 
     def __str__(self):
