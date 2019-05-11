@@ -20,11 +20,6 @@ class FormCreator(ModelForm):
             'cpf': TextInput(attrs={'class':'form-control'}),
             'date_birth': DateInput(attrs={'class':'form-control'})}
 
-class FormSearch(ModelForm):
-    class Meta:
-        model = Creator
-        fields = ('name',)
-
 class FormFarm(ModelForm):
     class Meta:
         model = Farm

@@ -6,10 +6,7 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label class="name" for="{{form.name.id_for_label}}">Criador</label>
-                        {{form.name}} {% for error in form.name.errors %}
-                        <p class="error">{{error}}</p>
-                        {% endfor %}
+                        <input type="text" class="form-control" name="name" placeholder="Nome do Criador">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary button-search">Procurar</button>
