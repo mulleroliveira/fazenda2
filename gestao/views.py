@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from . models import Animal
-from . forms import FormAnimal
+from . models import Animal, Creator
+from . forms import FormAnimal, FormCreator
 
 def home(request):
     return render(request, 'home/home.html')
@@ -40,3 +40,38 @@ def edit_animal(request, id_animal):
         animal = Animal.objects.get(pk=id_animal)
         form = FormAnimal(instance=animal)
         return render(request, 'animals/edit.html', {'form':form,'animal':animal})
+
+def creators(request):
+    creators = Creator.objects.all()
+    return render(request, 'creators/list.html', {"creators":creators})
+
+def delete_creator(request, id_creator):
+    creator = Creator.objects.get(pk=id_creator)
+    creator.delete()
+    return redirect('/gestao/criadores/')
+
+def register_creator(request):
+    if request.method == 'POST':
+        form = FormCreator(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/gestao/criadores/')
+        else:
+            return render(request, 'creators/register.html', {'form':form})
+    else:
+        form = FormCreator()
+        return render(request, 'creators/register.html', {'form':form})
+
+def edit_creator(request, id_creator):
+    if request.method == 'POST':
+        creator = Creator.objects.get(pk=id_creator)
+        form = FormCreator(request.POST, instance=creator)
+        if form.is_valid():
+            form.save()
+            return redirect('/gestao/criadores/')
+        else:
+            return render(request, 'creators/edit.html', {'form':form, 'creator':creator})
+    else:
+        creator = Creator.objects.get(pk=id_creator)
+        form = FormCreator(instance=creator)
+        return render(request, 'creators/edit.html', {'form':form,'creator':creator})

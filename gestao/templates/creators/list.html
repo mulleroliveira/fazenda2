@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-md-12">
+    <table class="table table-list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Data Nascimento</th>
+                <th>
+                    <a href="/gestao/criadores/cadastrar/">
+                        <button type="button" class="btn btn-primary">Novo</button>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for creator in creators %}
+            <tr>
+                <td>{{creator.id}}</td>
+                <td>{{creator.name}}</th>
+                <td>{{creator.cpf}}</td>
+                <td>{{creator.date_birth}}</td>
+                <td>
+                    <a href="/gestao/criadores/excluir/{{creator.id}}/">Excluir</a>
+                    |
+                    <a href="/gestao/criadores/editar/{{creator.id}}/">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
