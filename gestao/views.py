@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . models import Animal, Creator, Farm
-from . forms import FormAnimal, FormCreator, FormFarm
+from . forms import FormAnimal, FormCreator, FormFarm, FormSearch
+from django.http import HttpResponse
 
 def home(request):
     return render(request, 'home/home.html')
@@ -42,8 +43,18 @@ def edit_animal(request, id_animal):
         return render(request, 'animals/edit.html', {'form':form,'animal':animal})
 
 def creators(request):
-    creators = Creator.objects.all()
-    return render(request, 'creators/list.html', {"creators":creators})
+    if request.method == 'POST':
+        form = FormSearch(request.POST)
+        if (form.is_valid()):
+            form = request.POST.get('name')
+            creators = Creator.objects.filter(name__icontains=form)
+            return render(request, 'creators/list.html', {'creators':creators})
+        else:
+            return render(request, 'creators/list.html', {'form':form})
+    else:
+        form = FormSearch()
+        creators = Creator.objects.all()
+        return render(request, 'creators/list.html', {"creators":creators, 'form':form})
 
 def delete_creator(request, id_creator):
     creator = Creator.objects.get(pk=id_creator)

@@ -19,16 +19,19 @@
             <tr>
                 <td>{{farm.id}}</td>
                 <td>{{farm.name}}</th>
-                <td>{{farm.address}}</td>
-                <td>{{farm.creator}}</td>
-                <td>
-                    <a href="/gestao/fazendas/excluir/{{farm.id}}/">Excluir</a>
-                    |
-                    <a href="/gestao/fazendas/editar/{{farm.id}}/">Editar</a>
-                </td>
+                    <td>{{farm.address}}</td>
+                    <td>{{farm.creator}}</td>
+                    <td>
+                        <a href="/gestao/fazendas/excluir/{{farm.id}}/">Excluir</a>
+                        |
+                        <a href="/gestao/fazendas/editar/{{farm.id}}/">Editar</a>
+                    </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <div>
+        <p class="result">Resultado: {{creators | length}} fazenda(s)</p>
+    </div>
 </div>
 {% endblock %}

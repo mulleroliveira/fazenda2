@@ -2,6 +2,18 @@
 <div class="col-md-12">
     <table class="table table-list">
         <thead>
+            <form method="POST" action="/gestao/criadores/">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="name" for="{{form.name.id_for_label}}">Criador</label>
+                        {{form.name}} {% for error in form.name.errors %}
+                        <p class="error">{{error}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary button-search">Procurar</button>
+            </form>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -19,16 +31,19 @@
             <tr>
                 <td>{{creator.id}}</td>
                 <td>{{creator.name}}</th>
-                <td>{{creator.cpf}}</td>
-                <td>{{creator.date_birth}}</td>
-                <td>
-                    <a href="/gestao/criadores/excluir/{{creator.id}}/">Excluir</a>
-                    |
-                    <a href="/gestao/criadores/editar/{{creator.id}}/">Editar</a>
-                </td>
+                    <td>{{creator.cpf}}</td>
+                    <td>{{creator.date_birth}}</td>
+                    <td>
+                        <a href="/gestao/criadores/excluir/{{creator.id}}/">Excluir</a>
+                        |
+                        <a href="/gestao/criadores/editar/{{creator.id}}/">Editar</a>
+                    </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <div>
+        <p class="result">Resultado: {{creators | length}} criador(es)</p>
+    </div>
 </div>
 {% endblock %}
