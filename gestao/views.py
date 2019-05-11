@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from . models import Animal, Creator
-from . forms import FormAnimal, FormCreator
+from . models import Animal, Creator, Farm
+from . forms import FormAnimal, FormCreator, FormFarm
 
 def home(request):
     return render(request, 'home/home.html')
@@ -75,3 +75,7 @@ def edit_creator(request, id_creator):
         creator = Creator.objects.get(pk=id_creator)
         form = FormCreator(instance=creator)
         return render(request, 'creators/edit.html', {'form':form,'creator':creator})
+
+def farms(request):
+    farms = Farm.objects.all()
+    return render(request, 'farms/list.html', {'farms':farms})

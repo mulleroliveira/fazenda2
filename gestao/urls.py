@@ -10,5 +10,6 @@ urlpatterns = [
     path('criadores/', views.creators),
     path('criadores/excluir/<int:id_creator>/', views.delete_creator),
     path('criadores/cadastrar/', views.register_creator),
-    path('criadores/editar/<int:id_creator>/', views.edit_creator)
+    path('criadores/editar/<int:id_creator>/', views.edit_creator),
+    path('fazendas/', views.farms)
     ]

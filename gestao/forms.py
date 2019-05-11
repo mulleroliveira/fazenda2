@@ -19,3 +19,12 @@ class FormCreator(ModelForm):
             'name': TextInput(attrs={'class':'form-control'}),
             'cpf': TextInput(attrs={'class':'form-control'}),
             'date_birth': DateInput(attrs={'class':'form-control'})}
+
+class FormFarm(ModelForm):
+    class Meta:
+        model = Farm
+        fields = ('__all__')
+        widgets = {
+            'name': TextInput(attrs={'class':'form-control'}),
+            'address': TextInput(attrs={'class':'form-control'}),
+            'creator': Select(attrs={'class':'form-control'})}

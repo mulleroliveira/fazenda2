@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-md-12">
+    <table class="table table-list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Criador</th>
+                <th>
+                    <a href="/gestao/fazendas/cadastrar/">
+                        <button type="button" class="btn btn-primary">Novo</button>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for farm in farms %}
+            <tr>
+                <td>{{farm.id}}</td>
+                <td>{{farm.name}}</th>
+                <td>{{farm.address}}</td>
+                <td>{{farm.creator}}</td>
+                <td>
+                    <a href="/gestao/fazendas/excluir/{{farm.id}}/">Excluir</a>
+                    |
+                    <a href="/gestao/fazendas/editar/{{farm.id}}/">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
