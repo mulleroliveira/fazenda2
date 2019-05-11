@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from . models import Animal, Creator, Farm
 from . forms import FormAnimal, FormCreator, FormFarm
+from django.http import HttpResponse
+
 
 def home(request):
     return render(request, 'home/home.html')
