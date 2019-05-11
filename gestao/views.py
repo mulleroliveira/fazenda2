@@ -79,3 +79,34 @@ def edit_creator(request, id_creator):
 def farms(request):
     farms = Farm.objects.all()
     return render(request, 'farms/list.html', {'farms':farms})
+
+def delete_farm(request, id_farm):
+    farm = Farm.objects.get(pk=id_farm)
+    farm.delete()
+    return redirect('/gestao/fazendas/')
+
+def register_farm(request):
+    if request.method == 'POST':
+        form = FormFarm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/gestao/fazendas/')
+        else:
+            return render(request, 'farms/register.html', {'form':form})
+    else:
+        form = FormFarm()
+        return render(request, 'farms/register.html', {'form':form})
+
+def edit_farm(request, id_farm):
+    if request.method == 'POST':
+        farm = Farm.objects.get(pk=id_farm)
+        form = FormFarm(request.POST, instance=farm)
+        if form.is_valid():
+            form.save()
+            return redirect('/gestao/fazendas/')
+        else:
+            return render(request, 'farms/edit.html', {'form':form, 'farm':farm})
+    else:
+        farm = Farm.objects.get(pk=id_farm)
+        form = FormFarm(instance=farm)
+        return render(request, 'farms/edit.html', {'form':form, 'farm':farm})
