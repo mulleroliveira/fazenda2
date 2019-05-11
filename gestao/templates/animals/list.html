@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-md-12">
+    <table class="table table-list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Tipagem</th>
+                <th>Fazenda</th>
+                <th>
+                    <a href="/gestao/animais/cadastrar/">
+                        <button type="button" class="btn btn-primary">Novo</button>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for animal in animals %}
+            <tr>
+                <td>{{animal.id}}</td>
+                <td>{{animal.name}}</th>
+                <td>{{animal.sexo}}</td>
+                <td>{{animal.tipagem}}</td>
+                <td>{{animal.fazenda}}</td>
+                <td>
+                    <a href="/gestao/animais/excluir/{{animal.id}}/">Excluir</a>
+                    |
+                    <a href="/gestao/animais/editar/{{animal.id}}/">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
