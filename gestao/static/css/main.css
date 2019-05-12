@@ -14,3 +14,11 @@
 .result {
     color: beige;
 }
+
+#img-git {
+    max-width: 310px;
+}
+
+#horse-home {
+    max-width: 25%;
+}
