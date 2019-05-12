@@ -8,8 +8,13 @@ def home(request):
     return render(request, 'home/home.html')
 
 def animals(request):
-    animals = Animal.objects.all()
-    return render(request, 'animals/list.html', {'animals':animals})
+    if request.method == 'POST':
+        form = request.POST.get('select')
+        animals = Animal.objects.all().order_by(form)
+        return render(request, 'animals/list.html', {'animals':animals})
+    else:
+        animals = Animal.objects.all()
+        return render(request, 'animals/list.html', {'animals':animals})
 
 
 def delete_animal(request, id_animal):

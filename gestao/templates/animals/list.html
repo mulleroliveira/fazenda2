@@ -2,6 +2,20 @@
 <div class="col-md-12">
     <table class="table table-list">
         <thead>
+            <form action="/gestao/animais/" method="post">
+                {% csrf_token %}
+                <div class="form-group col-md-4">
+                    <label for="inputState">Ordenação</label>
+                    <select id="inputState" name="select" class="form-control">
+                        <option value="id">ID</option>
+                        <option value="name">Nome</option>
+                        <option value="sex">Sexo</option>
+                        <option value="typing">Tipagem</option>
+                        <option value="farm">Fazenda</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary button-search  ">Salvar</button>
+            </form>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -33,7 +47,7 @@
         </tbody>
     </table>
     <div>
-        <p class="result">Resultado: {{creators | length}} animal</p>
+        <p class="result">Resultado: {{animals | length}} animal</p>
     </div>
 </div>
 {% endblock %}
