@@ -14,5 +14,5 @@ urlpatterns = [
     path('fazendas/', views.farms),
     path('fazendas/excluir/<int:id_farm>/', views.delete_farm),
     path('fazendas/cadastrar/', views.register_farm),
-    path('fazendas/editar/<int:id_farm>/', views.edit_farm)
+    path('fazendas/editar/<int:id_farm>/', views.edit_farm),
     ]
