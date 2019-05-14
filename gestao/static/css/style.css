@@ -45,9 +45,6 @@ CONTENTS:
 01. General
 ============================================================ */
 
-div, article, section, header, footer, nav, li {
-	position:relative;
-}
 .group:after {
 	display:block;
 	height:0;

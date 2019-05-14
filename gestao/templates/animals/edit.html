@@ -2,12 +2,12 @@
 <div class="container">
     <form method="POST" action="/gestao/animais/editar/{{animal.id}}/">
         {% csrf_token %}
-        <div>
-            <div class="form-group">
+        <div class="form-row">
+            <div class="col-md-6">
                 <label for="{{form.name.id_for_label}}">Nome</label>
                 {{form.name}}
             </div>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="{{form.sex.id_for_label}}">Sexo</label>
                 {{form.sex}}
             </div>
@@ -19,7 +19,7 @@
                 <label for="{{form.farm.id_for_label}}">Fazenda</label>
                 {{form.farm}}
             </div>
-            <button type="submit" class="btn btn-primary submit-filter">Salvar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
     </form>
 </div>
