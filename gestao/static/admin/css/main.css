@@ -14,3 +14,9 @@
 .form {
     margin-right: 150px
 }
+
+.submit-filter {
+    margin-top: -1px;
+    width: 55px;
+    height: 28px;
+}
