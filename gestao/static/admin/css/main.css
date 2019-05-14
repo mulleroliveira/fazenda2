@@ -2,10 +2,15 @@
     color: red;
 }
 
-.button-search {
-    margin: 10px;
+.result {
+    margin-top: 30px;
+    color: #688a7e;
 }
 
-.result {
-    color: beige;
+.form-farm {
+    margin-top: 70px;
+}
+
+.form {
+    margin-right: 150px
 }

@@ -1,21 +1,23 @@
-{% extends 'base2.html' %} {% block content %}
+{% extends 'base2.html' %} {% load static %} {% block content %}
 <div class="col-md-12">
     <table class="table">
         <thead>
-            <form action="/gestao/animais/" method="post">
-                {% csrf_token %}
-                <div class="form-group col-md-4">
-                    <label for="inputState">Ordenação</label>
-                    <select id="inputState" name="select" class="form-control">
-                        <option value="id">ID</option>
-                        <option value="name">Nome</option>
-                        <option value="sex">Sexo</option>
-                        <option value="typing">Tipagem</option>
-                        <option value="farm">Fazenda</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary button-search  ">Salvar</button>
-            </form>
+            <div>
+                <form action="/gestao/animais/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Ordenação</label>
+                        <select id="inputState" name="select">
+                            <option value="id">ID</option>
+                            <option value="name">Nome</option>
+                            <option value="sex">Sexo</option>
+                            <option value="typing">Tipagem</option>
+                            <option value="farm">Fazenda</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -38,9 +40,13 @@
                     <td>{{animal.typing}}</td>
                     <td>{{animal.farm}}</td>
                     <td>
-                        <a href="/gestao/animais/excluir/{{animal.id}}/">Excluir</a>
+                        <a href="/gestao/animais/editar/{{animal.id}}/" title="Editar">
+                            <img src="{% static 'admin/img/edit.png' %}">
+                        </a>
                         |
-                        <a href="/gestao/animais/editar/{{animal.id}}/">Editar</a>
+                        <a href="/gestao/animais/excluir/{{animal.id}}/" title="Remover">
+                            <img src="{% static 'admin/img/trash.png' %}">
+                        </a>
                     </td>
             </tr>
             {% endfor %}

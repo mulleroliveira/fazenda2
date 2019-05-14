@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base2.html' %} {% load static %} {% block content %}
 <div class="col-md-12">
     <table class="table table-list">
         <thead>
@@ -31,9 +31,13 @@
                     <td>{{creator.cpf}}</td>
                     <td>{{creator.date_birth}}</td>
                     <td>
-                        <a href="/gestao/criadores/excluir/{{creator.id}}/">Excluir</a>
+                        <a href="/gestao/criadores/editar/{{creator.id}}/" title="Editar">
+                            <img src="{% static 'admin/img/edit.png' %}">
+                        </a>
                         |
-                        <a href="/gestao/criadores/editar/{{creator.id}}/">Editar</a>
+                        <a href="/gestao/criadores/excluir/{{creator.id}}/" title="Remover">
+                            <img src="{% static 'admin/img/trash.png' %}">
+                        </a>
                     </td>
             </tr>
             {% endfor %}
