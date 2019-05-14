@@ -1,26 +1,28 @@
 {% extends 'base2.html' %} {% block content %}
 <div class="container">
-    <form method="POST" action="/gestao/animais/editar/{{animal.id}}/">
-        {% csrf_token %}
-        <div class="form-row">
-            <div class="col-md-6">
-                <label for="{{form.name.id_for_label}}">Nome</label>
-                {{form.name}}
+    <div id="edit-animal">
+        <form method="POST" action="/gestao/animais/editar/{{animal.id}}/">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="{{form.name.id_for_label}}">Nome</label>
+                    {{form.name}}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="{{form.sex.id_for_label}}">Sexo</label>
+                    {{form.sex}}
+                </div>
+                <div class="form-group">
+                    <label for="{{form.typing.id_for_label}}">Tipagem</label>
+                    {{form.typing}}
+                </div>
+                <div class="form-group">
+                    <label for="{{form.farm.id_for_label}}">Fazenda</label>
+                    {{form.farm}}
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
-            <div class="col-md-6">
-                <label for="{{form.sex.id_for_label}}">Sexo</label>
-                {{form.sex}}
-            </div>
-            <div class="form-group">
-                <label for="{{form.typing.id_for_label}}">Tipagem</label>
-                {{form.typing}}
-            </div>
-            <div class="form-group">
-                <label for="{{form.farm.id_for_label}}">Fazenda</label>
-                {{form.farm}}
-            </div>
-            <button type="submit" class="btn btn-primary">Salvar</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 {% endblock %}

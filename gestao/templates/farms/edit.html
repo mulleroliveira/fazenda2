@@ -1,20 +1,24 @@
 {% extends 'base2.html' %} {% block content %}
-<div class="row">
-    <form method="POST" action="/gestao/fazendas/editar/{{farm.id}}/">
-        {% csrf_token %}
-        <div class="form-row">
-            {% for c in form %}
-            <div class="form-group col-md-6">
-                <label for="{{c.id_for_label}}">{{c.label}}</label>
-                {{c}} {% for error in c.errors %}
-                <div>
-                    <p class="error">{{error}}</p>
+<div class="container">
+    <div class="edit-farm">
+            <form method="POST" action="/gestao/fazendas/editar/{{farm.id}}/">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="{{form.name.id_for_label}}">Nome</label>
+                    {{form.name}}
                 </div>
-                {% endfor %}
+                <div class="form-group col-md-6">
+                    <label for="{{form.cpf.id_for_label}}">CPF</label>
+                    {{form.address}}
+                </div>
+                <div class="form-group">
+                    <label for="{{form.creator.id_for_label}}">Criador</label>
+                    {{form.creator}}
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
-            {% endfor %}
-        </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-    </form>
+        </form>
+    </div>
 </div>
 {% endblock %}

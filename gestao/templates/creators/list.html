@@ -1,11 +1,11 @@
 {% extends 'base2.html' %} {% load static %} {% block content %}
-<div class="col-md-12">
+<div class="container">
     <table class="table table-list">
         <thead>
             <form method="POST" action="/gestao/criadores/">
                 {% csrf_token %}
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                <div class="search-creator">
+                    <div class="form-group col-md-3">
                         <input type="text" class="form-control" name="name" placeholder="Nome do Criador">
                     </div>
                 </div>
