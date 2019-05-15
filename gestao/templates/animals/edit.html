@@ -6,19 +6,35 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="{{form.name.id_for_label}}">Nome</label>
-                    {{form.name}}
+                    {{form.name}} {% for error in form.name.errors %}
+                    <div>
+                        <p class="error">{{error}}</p>
+                    </div>
+                    {% endfor %}
                 </div>
                 <div class="form-group col-md-6">
                     <label for="{{form.sex.id_for_label}}">Sexo</label>
-                    {{form.sex}}
+                    {{form.sex}} {% for error in form.sex.errors %}
+                    <div>
+                        <p class="error">{{error}}</p>
+                    </div>
+                    {% endfor %}
                 </div>
                 <div class="form-group">
                     <label for="{{form.typing.id_for_label}}">Tipagem</label>
-                    {{form.typing}}
+                    {{form.typing}} {% for error in form.typing.errors %}
+                    <div>
+                        <p class="error">{{error}}</p>
+                    </div>
+                    {% endfor %}
                 </div>
                 <div class="form-group">
                     <label for="{{form.farm.id_for_label}}">Fazenda</label>
-                    {{form.farm}}
+                    {{form.farm}} {% for error in form.farm.errors %}
+                    <div>
+                        <p class="error">{{error}}</p>
+                    </div>
+                    {% endfor %}
                 </div>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
