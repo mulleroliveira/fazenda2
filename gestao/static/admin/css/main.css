@@ -21,8 +21,14 @@
     height: 28px;
 }
 
-#edit-animal, .register-creator, .list-animal, .edit-farm, .register-farm{
-    margin-top: 30px;
+#edit-animal, 
+.register-creator,
+.list-animal, 
+.edit-farm, 
+.register-farm, 
+.list-creator, 
+.list-form {
+    margin-top: 100px;
 }
 
 .search-creator {
