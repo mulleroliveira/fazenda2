@@ -9,7 +9,7 @@
                     <th>Endereço</th>
                     <th>Criador</th>
                     <th>
-                        <a href="/gestao/fazendas/cadastrar/">
+                        <a href="/gestao/farms/register/">
                             <button type="button" class="btn btn-primary">Novo</button>
                         </a>
                     </th>
@@ -23,11 +23,11 @@
                         <td>{{farm.address}}</td>
                         <td>{{farm.creator}}</td>
                         <td>
-                            <a href="/gestao/fazendas/editar/{{farm.id}}/" title="Editar">
+                            <a href="/gestao/farms/edit/{{farm.id}}/" title="Editar">
                                 <img src="{% static 'admin/img/edit.png' %}">
                             </a>
                             |
-                            <a href="/gestao/fazendas/excluir/{{farm.id}}/" title="Remover">
+                            <a href="/gestao/farms/delete/{{farm.id}}/" title="Remover">
                                 <img src="{% static 'admin/img/trash.png' %}">
                             </a>
                         </td>

@@ -3,22 +3,26 @@
     <div class="list-creator">
         <table class="table table-list">
             <thead>
-                <form method="POST" action="/gestao/criadores/">
-                    {% csrf_token %}
-                    <div class="search-creator">
-                        <div class="form-group col-md-3">
-                            <input type="text" class="form-control" name="name" placeholder="Nome do Criador">
-                        </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="POST" action="/gestao/creators/">
+                            {% csrf_token %}
+                            <div class="search-creator">
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control" name="name" placeholder="Nome do Criador">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary button-search">Procurar</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary button-search">Procurar</button>
-                </form>
+                </div>
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Data Nascimento</th>
                     <th>
-                        <a href="/gestao/criadores/cadastrar/">
+                        <a href="/gestao/creators/register/">
                             <button type="button" class="btn btn-primary">Novo</button>
                         </a>
                     </th>
@@ -32,11 +36,11 @@
                         <td>{{creator.cpf}}</td>
                         <td>{{creator.date_birth}}</td>
                         <td>
-                            <a href="/gestao/criadores/editar/{{creator.id}}/" title="Editar">
+                            <a href="/gestao/creators/edit/{{creator.id}}/" title="Editar">
                                 <img src="{% static 'admin/img/edit.png' %}">
                             </a>
                             |
-                            <a href="/gestao/criadores/excluir/{{creator.id}}/" title="Remover">
+                            <a href="/gestao/creators/delete/{{creator.id}}/" title="Remover">
                                 <img src="{% static 'admin/img/trash.png' %}">
                             </a>
                         </td>
@@ -49,5 +53,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

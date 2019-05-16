@@ -1,7 +1,7 @@
 {% extends 'base2.html' %} {% block content %}
 <div class="container">
     <div id="edit-animal">
-        <form method="POST" action="/gestao/animais/editar/{{animal.id}}/">
+        <form method="POST" action="/gestao/animals/edit/{{animal.id}}/">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-6">

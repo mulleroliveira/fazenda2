@@ -20,14 +20,14 @@ def animals(request):
 def delete_animal(request, id_animal):
     animal = Animal.objects.get(pk=id_animal)
     animal.delete()
-    return redirect('/gestao/animais/')
+    return redirect('/gestao/animals/')
 
 def register_animal(request):
     if request.method == 'POST':
         form = FormAnimal(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/gestao/animais/')
+            return redirect('/gestao/animals/')
         else:
             return render(request, 'animals/register.html', {'form':form})
     else:
@@ -40,7 +40,7 @@ def edit_animal(request, id_animal):
         form = FormAnimal(request.POST, instance=animal)
         if form.is_valid():
             form.save()
-            return redirect('/gestao/animais/')
+            return redirect('/gestao/animals/')
         else:
             return render(request, 'animals/edit.html', {'form':form, 'animal':animal})
     else:
@@ -60,14 +60,14 @@ def creators(request):
 def delete_creator(request, id_creator):
     creator = Creator.objects.get(pk=id_creator)
     creator.delete()
-    return redirect('/gestao/criadores/')
+    return redirect('/gestao/creators/')
 
 def register_creator(request):
     if request.method == 'POST':
         form = FormCreator(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/gestao/criadores/')
+            return redirect('/gestao/creators/')
         else:
             return render(request, 'creators/register.html', {'form':form})
     else:
@@ -80,7 +80,7 @@ def edit_creator(request, id_creator):
         form = FormCreator(request.POST, instance=creator)
         if form.is_valid():
             form.save()
-            return redirect('/gestao/criadores/')
+            return redirect('/gestao/creators/')
         else:
             return render(request, 'creators/edit.html', {'form':form, 'creator':creator})
     else:
@@ -95,14 +95,14 @@ def farms(request):
 def delete_farm(request, id_farm):
     farm = Farm.objects.get(pk=id_farm)
     farm.delete()
-    return redirect('/gestao/fazendas/')
+    return redirect('/gestao/farms/')
 
 def register_farm(request):
     if request.method == 'POST':
         form = FormFarm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/gestao/fazendas/')
+            return redirect('/gestao/farms/')
         else:
             return render(request, 'farms/register.html', {'form':form})
     else:
@@ -115,7 +115,7 @@ def edit_farm(request, id_farm):
         form = FormFarm(request.POST, instance=farm)
         if form.is_valid():
             form.save()
-            return redirect('/gestao/fazendas/')
+            return redirect('/gestao/farms/')
         else:
             return render(request, 'farms/edit.html', {'form':form, 'farm':farm})
     else:

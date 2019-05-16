@@ -1,7 +1,7 @@
 {% extends 'base2.html' %} {% block content %}
 <div class="container">
     <div class="register-farm">
-        <form method="POST" action="/gestao/fazendas/cadastrar/">
+        <form method="POST" action="/gestao/farms/register/">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-6">
