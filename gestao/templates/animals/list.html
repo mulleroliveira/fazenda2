@@ -1,26 +1,26 @@
 {% extends 'base2.html' %} {% load static %} {% block content %}
 <div class="container">
     <div class="list-animal">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/gestao/animals/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Ordenação</label>
+                        <select id="inputState" name="select">
+                            <option value="id">ID</option>
+                            <option value="name">Nome</option>
+                            <option value="sex">Sexo</option>
+                            <option value="typing">Tipagem</option>
+                            <option value="farm">Fazenda</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary submit">Ok</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <table class="table">
             <thead>
-                <div class="row">
-                    <div class="col-md-12">
-                        <form action="/gestao/animals/" method="post">
-                            {% csrf_token %}
-                            <div class="form-group col-md-4">
-                                <label for="inputState">Ordenação</label>
-                                <select id="inputState" name="select">
-                                    <option value="id">ID</option>
-                                    <option value="name">Nome</option>
-                                    <option value="sex">Sexo</option>
-                                    <option value="typing">Tipagem</option>
-                                    <option value="farm">Fazenda</option>
-                                </select>
-                                <button type="submit" class="btn btn-primary submit">Ok</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>

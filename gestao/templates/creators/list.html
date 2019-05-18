@@ -1,21 +1,21 @@
 {% extends 'base2.html' %} {% load static %} {% block content %}
 <div class="container">
     <div class="list-creator">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="POST" action="/gestao/creators/">
+                    {% csrf_token %}
+                    <div class="search-creator">
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" name="name" placeholder="Nome do Criador">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary button-search">Procurar</button>
+                </form>
+            </div>
+        </div>
         <table class="table table-list">
             <thead>
-                <div class="row">
-                    <div class="col-md-12">
-                        <form method="POST" action="/gestao/creators/">
-                            {% csrf_token %}
-                            <div class="search-creator">
-                                <div class="form-group col-md-3">
-                                    <input type="text" class="form-control" name="name" placeholder="Nome do Criador">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary button-search">Procurar</button>
-                        </form>
-                    </div>
-                </div>
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>

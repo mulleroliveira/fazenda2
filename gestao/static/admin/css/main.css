@@ -26,9 +26,12 @@
 .list-animal, 
 .edit-farm, 
 .register-farm, 
-.list-creator, 
-.list-form {
+.list-creator {
     margin-top: 100px;
+}
+
+.list-form {
+    margin-top: 180px;
 }
 
 .search-creator {
