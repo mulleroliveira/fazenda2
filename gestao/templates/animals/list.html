@@ -1,4 +1,6 @@
-{% extends 'base2.html' %} {% load static %} {% block content %}
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
 <div class="container">
     <div class="list-animal">
         <div class="row">
@@ -39,18 +41,20 @@
                 <tr>
                     <td>{{animal.id}}</td>
                     <td>{{animal.name}}</th>
-                        <td>{{animal.sex}}</td>
-                        <td>{{animal.typing}}</td>
-                        <td>{{animal.farm}}</td>
-                        <td>
-                            <a href="/gestao/animals/edit/{{animal.id}}/" title="Editar">
-                                <img src="{% static 'admin/img/edit.png' %}">
-                            </a>
-                            |
-                            <a href="/gestao/animals/delete/{{animal.id}}/" title="Remover">
-                                <img src="{% static 'admin/img/trash.png' %}">
-                            </a>
-                        </td>
+                    <td>{{animal.sex}}</td>
+                    <td>{{animal.typing}}</td>
+                    <td>{{animal.farm}}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary" title="Editar"
+                            href="/gestao/animals/edit/{{animal.id}}/">
+                            <img src="{% static 'admin/img/edit.png' %}">
+                        </a>
+                        |
+                        <a type="button" class="btn btn-primary" title="Remover"
+                            href="/gestao/animals/delete/{{animal.id}}/">
+                            <img src="{% static 'admin/img/trash.png' %}">
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
