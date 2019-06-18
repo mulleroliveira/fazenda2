@@ -45,15 +45,15 @@
                     <td>{{animal.typing}}</td>
                     <td>{{animal.farm}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" title="Editar"
+                        <a type="button" class="btn btn-primary" title="Editar"
                             href="/gestao/animals/edit/{{animal.id}}/">
                             <img src="{% static 'admin/img/edit.png' %}">
-                        </button>
+                        </a>
                         |
-                        <button type="button" data-id="{{animal.id}}" class="btn btn-primary" data-target="#chamarmodal"
+                        <a type="button" data-id="{{animal.id}}" class="btn btn-primary" data-target="#chamarmodal"
                             data-toggle="modal" title="Remover">
                             <img src="{% static 'admin/img/trash.png' %}">
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}

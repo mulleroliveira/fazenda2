@@ -26,7 +26,8 @@
 .list-animal, 
 .edit-farm, 
 .register-farm, 
-.list-creator {
+.list-creator,
+.login {
     margin-top: 100px;
 }
 
