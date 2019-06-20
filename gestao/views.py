@@ -5,7 +5,10 @@ from django.http import HttpResponse
 
 
 def home(request):
-    request.session["contagem"] = 0
+    if request.session["contagem"] == None:
+        request.session["contagem"] = 1
+    else:
+        request.session["contagem"] += 1
     return render(request, 'home/home.html')
 
 def animals(request):
