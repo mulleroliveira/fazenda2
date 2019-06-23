@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def home(request):
-    if request.session["contagem"] == None:
+    if request.session.get("contagem") == None:
         request.session["contagem"] = 1
     else:
         request.session["contagem"] += 1
