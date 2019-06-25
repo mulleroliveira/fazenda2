@@ -68,7 +68,9 @@
                         </a>
                         <h1 class="brand">
                             <a href="/gestao/">Fazenda</a>
-                            <p>Você é o visitante do número: {{request.session.contagem}}</p>
+                            {% if request.user.username %}
+                            <p>Bem vindo, {{request.user.username}}!</p>
+                            {% endif %}
                         </h1>
                         <!-- navigation -->
                         <nav class="pull-right nav-collapse collapse">
@@ -85,6 +87,16 @@
                                 <li>
                                     <a href="/gestao/#about">Sobre</a>
                                 </li>
+                                {% if not request.user.username %}
+                                <li>
+                                    <a href="/accounts/login/">Login</a>
+                                </li>
+                                {% endif %}
+                                {% if request.user.username %}
+                                <li>
+                                    <a href="/accounts/logout/">Logout</a>
+                                </li>
+                                {% endif %}
                             </ul>
                         </nav>
                     </div>
@@ -190,7 +202,7 @@
 
     {% block script %}
     {% endblock %}
-    
+
 </body>
 
 </html>
