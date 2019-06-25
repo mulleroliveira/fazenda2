@@ -68,7 +68,7 @@
                         </a>
                         <h1 class="brand">
                             <a href="/gestao/">Fazenda</a>
-                            {% if request.user.username %}
+                            {% if user.is_authenticated %}
                             <p>Bem vindo, {{request.user.username}}!</p>
                             {% endif %}
                         </h1>
